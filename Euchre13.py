@@ -1,7 +1,5 @@
 # This section is for setting global variables and importing methods.
 
-# Committed 11-28-2020
-# Another test change
 
 card_values=[(x, y) for x in range(4) for y in range(6)]
 suitlabels=['Hearts','Spades','Diamonds','Clubs'] #Having same-color suits two apart enables actions recognizing their complementary relationship in Euchre.
