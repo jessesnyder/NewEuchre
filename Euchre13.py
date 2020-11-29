@@ -59,8 +59,8 @@ class Player():
                 self.hand.append(shuffledcards.pop())
                 self.cards_out=card_values[:]
                 count += 1
-        for card in self.hand:
-            del self.cards_out[self.cards_out.index(card)]
+            for card in self.hand:
+                del self.cards_out[self.cards_out.index(card)]
         self.handbu=self.hand[:]
         self.cards_outbu=self.cards_out[:]
     def getsuit(self,suit,cards,trump_local):
@@ -325,11 +325,12 @@ class LivePlayer(Player):
         if bidding_round==0:
             trump=topcard[0]
             handval=self.calc_handvalue(trump,0)
-            validbids=[0,1,2]
+            validbids=[0,1,2,9]
             bid_type=999
             while bid_type not in validbids:
-                try: bid_type=eval(input("\nDo you want to bid? (0=no; 1=yes; 2=go alone)"))
+                try: bid_type=eval(input("\nDo you want to bid? (0=no; 1=yes; 2=go alone; 9=exit)"))
                 except: bid_type=999
+            if bid_type == 9: exit()
             roundinfo=[bid_type,hand,bidding_round,player_position,handval,trump,topcard,self.hand]
             bidding_data.append(roundinfo)
             self.team.bid = bid_type
