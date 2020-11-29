@@ -54,6 +54,13 @@ class Player():
             self.hand=self.handbu[:]
             self.cards_out=self.cards_outbu[:]
         else:
+            count = 0
+            while count < 5:
+                self.hand.append(shuffledcards.pop())
+                self.cards_out=card_values[:]
+                count += 1
+        for card in self.hand:
+            del self.cards_out[self.cards_out.index(card)]
         self.handbu=self.hand[:]
         self.cards_outbu=self.cards_out[:]
     def getsuit(self,suit,cards,trump_local):
