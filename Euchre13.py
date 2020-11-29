@@ -47,17 +47,13 @@ class Player():
         self.voids = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
         self.handvalue = 0
         self.handbu = []
+        self.cards_outbu = []
     def getcards(self):
         self.hand=[]
         if replay==2:
             self.hand=self.handbu[:]
             self.cards_out=self.cards_outbu[:]
         else:
-            for card in range(5):
-                self.hand.append(shuffledcards.pop())
-                self.cards_out=card_values[:]
-            for card in self.hand:
-                del self.cards_out[self.cards_out.index(card)]
         self.handbu=self.hand[:]
         self.cards_outbu=self.cards_out[:]
     def getsuit(self,suit,cards,trump_local):
